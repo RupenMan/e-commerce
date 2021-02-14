@@ -12,29 +12,30 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
 
-    private ProductRepository productRepository;
+  private ProductRepository productRepository;
 
-    public ProductService( ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+  public ProductService(ProductRepository productRepository) {
+    this.productRepository = productRepository;
+  }
 
-    public Product fetchProductById(Long id) {
-        return productRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
-    }
+  public Product fetchProductById(Long id) {
+    return productRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+  }
 
-    public Iterable<Product> fetchProducts() {
-        return productRepository.findAll();
-    }
+  public Iterable<Product> fetchProducts() {
+    return productRepository.findAll();
+  }
 
-    public Product saveProduct(Product product) {
-        return productRepository.save(product);
-    }
+  public Product ***REMOVED***veProduct(Product product) {
+    return productRepository.***REMOVED***ve(product);
+  }
 
-    public void deleteProductById(Long id) {
-        productRepository.deleteById(id);
-    }
+  public void deleteProductById(Long id) {
+    productRepository.deleteById(id);
+  }
 
-    public Page<Product> fetchProducts(int page, int size, String direction, String sortParam) {
-        return productRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.valueOf(direction), sortParam) ));
-    }
+  public Page<Product> fetchProducts(int page, int size, String direction, String sortParam) {
+    return productRepository
+        .findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.valueOf(direction), sortParam)));
+  }
 }
