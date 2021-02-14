@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Product {
   @Id @GeneratedValue private Long id;
+  private Long categoryId;
   private String productName;
   private String productDesc;
   private Double price;
